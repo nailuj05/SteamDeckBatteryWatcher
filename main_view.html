@@ -13,7 +13,7 @@
 
             p.innerHTML = "/";
 
-            p.innerHTML = await call_plugin_method("PythonTest", {});
+            p.innerHTML = await call_plugin_method("GetCharge2", {});
 
             call_plugin_method("GetCharge", {}).then((value) => {
                 head.innerHTML = "Percentage: " + value;

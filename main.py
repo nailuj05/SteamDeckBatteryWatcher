@@ -8,8 +8,9 @@ class Plugin:
         return str(b.percent)
     # A normal method. It can be called from JavaScript using call_plugin_function("method_2", argument1, argument2)
 
-    async def PythonTest(self) -> int:
-        return 42
+    async def GetCharge2(self) -> float:
+        b = psutil.sensors_battery()
+        return float(b.percent)
 
     # Asyncio-compatible long-running code, executed in a task when the plugin is loaded
     async def _main(self):
