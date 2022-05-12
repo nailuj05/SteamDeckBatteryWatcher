@@ -17,13 +17,21 @@
         let p = document.getElementById("p");
         let head = document.getElementById("Percentage");
 
-        p.innerHTML = "loading";
+        p.innerHTML = "1";
 
         let s = await call_plugin_method("PythonTest", {});
+
+        p.innerHTML = "2";
+
         p.innerHTML = "Nice string: " + s;
 
         let percentage = await call_plugin_method("GetCharge", {});
+
+        p.innerHTML = "3";
+
         head.innerHTML = "Percentage: " + percentage;
+
+        p.innerHTML = "4";
     }
 </script>
 
