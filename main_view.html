@@ -17,19 +17,19 @@
         let p = document.getElementById("p");
         let head = document.getElementById("Percentage");
 
-        let s = await Test2();
+        let s = await PythonTest();
         p.innerHTML = "Nice string: " + s;
 
-        let percentage = await Test();
+        let percentage = await GetCharge();
         head.innerHTML = "Percentage:" + percentage;
     }
 
-    async function Test2() {
-        return call_plugin_method("test2", {});
+    function PythonTest() {
+        return call_plugin_method("PythonTest", {});
     }
 
-    async function Test() {
-        return call_plugin_method("test", {});
+    function GetCharge() {
+        return call_plugin_method("GetCharge", {});
     }
 </script>
 
