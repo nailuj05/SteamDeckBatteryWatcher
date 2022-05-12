@@ -10,6 +10,9 @@ class Plugin:
     async def GetCharge2(self) -> int:
         return int(read_from_sys("/sys/class/hwmon/hwmon2/device/charge_now", amount=-1).strip())
 
+    async def GetCharge3(self) -> int:
+        return int(read_from_sys("/sys/class/power_supply/BAT0/capacity").strip())
+
     # Asyncio-compatible long-running code, executed in a task when the plugin is loaded
     async def _main(self):
         pass
