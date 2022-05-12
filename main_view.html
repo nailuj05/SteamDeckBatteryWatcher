@@ -13,7 +13,9 @@
 
             p.innerHTML = "/";
 
-            p.innerHTML = await call_plugin_method("GetCharge2", {});
+            call_plugin_method("GetCharge2", {}).then((value) => {
+                p.innerHTML = "Percentage: " + value;
+            });
 
             call_plugin_method("GetCharge", {}).then((value) => {
                 head.innerHTML = "Percentage: " + value;
@@ -25,7 +27,7 @@
 <body onload="Load()">
     <h2>Hello World</h2>
     <h3 id="Percentage">Percentage: ///</h3>
-    <p id="p">---</p>
+    <h3 id="p">---</h3>
 </body>
 
 </html>
