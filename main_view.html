@@ -19,19 +19,11 @@
 
         p.innerHTML = "Hello Mom";
 
-        let s = PythonTest();
+        let s = await call_plugin_method("PythonTest", {});
         p.innerHTML = "Nice string: " + s;
 
-        let percentage = GetCharge();
-        head.innerHTML = "Percentage:" + percentage;
-    }
-
-    function PythonTest() {
-        return call_plugin_method("PythonTest", {});
-    }
-
-    function GetCharge() {
-        return call_plugin_method("GetCharge", {});
+        let percentage = await call_plugin_method("GetCharge", {});
+        head.innerHTML = "Percentage: " + percentage;
     }
 </script>
 
