@@ -2,6 +2,8 @@
     "name": "Battery Watcher",
     "author": "Sil3nt",
     "main_view_html": "main_view.html",
-    "tile_view_html": "",
-    "flags": ["_hot_reload", "_root"]
+    "flags": [
+        "_hot_reload",
+        "_root"
+    ]
 }
