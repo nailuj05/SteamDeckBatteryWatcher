@@ -13,6 +13,10 @@ class Plugin:
     async def GetCharge3(self) -> int:
         return int(read_from_sys("/sys/class/power_supply/BAT0/capacity").strip())
 
+    async def GetCharge4(self) -> int:
+        charge = os.system("cat /sys/class/power_supply/BAT0/capacity")
+        return int(charge)
+
     # Asyncio-compatible long-running code, executed in a task when the plugin is loaded
     async def _main(self):
         pass
