@@ -13,17 +13,16 @@
 
             p.innerHTML = "1";
 
-            let s = await call_plugin_method("PythonTest", {});
+            let s = call_plugin_method("PythonTest", {});
 
             p.innerHTML = "2";
 
-            p.innerHTML = "Nice string: " + s;
+            p.innerHTML = "Nice string: " + await s;
 
-            let percentage = await call_plugin_method("GetCharge", {});
-
-            p.innerHTML = "3";
-
-            head.innerHTML = "Percentage: " + percentage;
+            call_plugin_method("GetCharge", {}).then((value) => {
+                head.innerHTML = "Percentage: " + value;
+                p.innerHTML = "3";
+            });
 
             p.innerHTML = "4";
         }
