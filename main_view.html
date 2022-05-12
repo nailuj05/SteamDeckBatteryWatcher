@@ -5,6 +5,29 @@
     <link rel="stylesheet" href="/steam_resource/css/39.css">
     <link rel="stylesheet" href="/steam_resource/css/library.css">
     <script src="/static/library.js"></script>
+
+    <script>
+        async function Load() {
+            let p = document.getElementById("p");
+            let head = document.getElementById("Percentage");
+
+            p.innerHTML = "1";
+
+            let s = await call_plugin_method("PythonTest", {});
+
+            p.innerHTML = "2";
+
+            p.innerHTML = "Nice string: " + s;
+
+            let percentage = await call_plugin_method("GetCharge", {});
+
+            p.innerHTML = "3";
+
+            head.innerHTML = "Percentage: " + percentage;
+
+            p.innerHTML = "4";
+        }
+    </script>
 </head>
 
 <body onload="Load()">
@@ -12,27 +35,5 @@
     <h3 id="Percentage">Percentage: </h3>
     <p id="p">---</p>
 </body>
-<script>
-    async function Load() {
-        let p = document.getElementById("p");
-        let head = document.getElementById("Percentage");
-
-        p.innerHTML = "1";
-
-        let s = await call_plugin_method("PythonTest", {});
-
-        p.innerHTML = "2";
-
-        p.innerHTML = "Nice string: " + s;
-
-        let percentage = await call_plugin_method("GetCharge", {});
-
-        p.innerHTML = "3";
-
-        head.innerHTML = "Percentage: " + percentage;
-
-        p.innerHTML = "4";
-    }
-</script>
 
 </html>
