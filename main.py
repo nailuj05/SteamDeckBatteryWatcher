@@ -1,15 +1,12 @@
-import logging
-import psutil
-
-
 class Plugin:
-    async def GetCharge1(self) -> str:
-        logging.debug("reached pythn")
-        b = psutil.sensors_battery()
-        logging.debug(str(b))
-        logging.debug(str(b.percent))
-        return str(b.percent)
+    async def getCharge(self) -> int:
+        return int(read_from_sys("/sys/class/hwmon/hwmon2/device/charge_now", amount=-1).strip())
 
     # Asyncio-compatible long-running code, executed in a task when the plugin is loaded
     async def _main(self):
         pass
+
+
+def read_from_sys(path, amount=1):
+    with open(path, mode="r") as f:
+        return f.read(amount)

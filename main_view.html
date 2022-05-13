@@ -7,28 +7,27 @@
     <script src="/static/library.js"></script>
 
     <script>
+        function getCharge() {
+            return call_plugin_method("getCharge", {});
+        }
+
         async function Load() {
             let p1 = document.getElementById("p1");
             let p2 = document.getElementById("p2");
             let p3 = document.getElementById("p3");
 
-            p1.innerHTML = "/";
+            p1.innerHTML = "set";
 
-            call_plugin_method("GetCharge1", {}).then((value) => {
-                p1.innerHTML = "Percentage: " + value;
-            });
+            let current_charge = await getCharge()
 
-            let p = await call_plugin_method("GetCharge1", {});
-            p1.innerHTML = "Percentage: " + p;
+            p1.innerText = (7.7 * chargeNow / 1000000).toFixed(2).toString() + " Wh (" + (100 * chargeNow / chargeFull).toFixed(0).toString() + "%)";
         }
     </script>
 </head>
 
 <body onload="Load()">
     <h2>Hello World</h2>
-    <h3 id="p1">p1</h3>
-    <h3 id="p2">p2</h3>
-    <h3 id="p3">p3</h3>
+    <h3 id="p1">not set</h3>
 </body>
 
 </html>
