@@ -14,15 +14,15 @@
 
             p1.innerHTML = "/";
 
-            call_plugin_method("GetCharge2", {}).then((value) => {
+            call_plugin_method("GetCharge1", {}).then((value) => {
                 p1.innerHTML = "Percentage: " + value;
             });
 
-            call_plugin_method("GetCharge3", {}).then((value) => {
+            call_plugin_method("GetCharge2", {}).then((value) => {
                 p2.innerHTML = "Percentage: " + value;
             });
 
-            call_plugin_method("GetCharge4", {}).then((value) => {
+            call_plugin_method("GetCharge3", {}).then((value) => {
                 p3.innerHTML = "Percentage: " + value;
             });
         }
