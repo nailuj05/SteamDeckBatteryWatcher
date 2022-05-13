@@ -12,11 +12,13 @@
         }
 
         async function Load() {
-            let p1 = document.getElementById("p1");
-            let p2 = document.getElementById("p2");
-            let p3 = document.getElementById("p3");
-
             p1.innerHTML = "set";
+
+            window.setInterval(function () { updateBattery().then(_ => { }) }, 5000);
+        }
+
+        async function updateBattery() {
+            let p1 = document.getElementById("p1");
 
             let current_charge = await getCharge();
 
