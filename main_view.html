@@ -14,7 +14,7 @@
         async function Load() {
             p1.innerHTML = "set";
 
-            p1.innerHTML = call_plugin_method("test", {});
+            p1.innerHTML = await call_plugin_method("test", {});
 
             window.setInterval(function () { updateBattery().then(_ => { }) }, 5000);
         }
