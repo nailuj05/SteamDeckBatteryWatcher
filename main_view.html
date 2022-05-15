@@ -20,7 +20,7 @@
         async function updateBattery() {
             let p1 = document.getElementById("p1");
 
-            let current_charge = await getCharge();
+            let current_charge = await getChargeRaw();
 
             p1.innerText = (7.7 * chargeNow / 1000000).toFixed(2).toString() + " Wh (" + (100 * chargeNow / chargeFull).toFixed(0).toString() + "%)";
         }
