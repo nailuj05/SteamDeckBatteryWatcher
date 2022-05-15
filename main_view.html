@@ -8,11 +8,13 @@
 
     <script>
         function getCharge() {
-            return call_plugin_method("getCharge", {});
+            return call_plugin_method("getChargeRaw", {});
         }
 
         async function Load() {
             p1.innerHTML = "set";
+
+            p1.innerHTML = call_plugin_method("test", {});
 
             window.setInterval(function () { updateBattery().then(_ => { }) }, 5000);
         }
@@ -20,7 +22,7 @@
         async function updateBattery() {
             let p1 = document.getElementById("p1");
 
-            let current_charge = await getChargeRaw();
+            let current_charge = await getCharge();
 
             p1.innerText = (7.7 * chargeNow / 1000000).toFixed(2).toString() + " Wh (" + (100 * chargeNow / chargeFull).toFixed(0).toString() + "%)";
         }

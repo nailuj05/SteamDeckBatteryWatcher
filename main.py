@@ -6,6 +6,9 @@ class Plugin:
     async def getChargeRaw(self) -> int:
         return int(read_from_sys("/sys/class/hwmon/hwmon2/device/charge_now", amount=-1).strip())
 
+    async def test(self) -> str:
+        return "Hello World"
+
     def getCharge(self):
         chargeNow = read_from_sys(
             "/sys/class/hwmon/hwmon2/device/charge_now", amount=-1)
