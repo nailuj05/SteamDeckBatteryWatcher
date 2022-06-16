@@ -3,6 +3,7 @@
     "author": "Sil3nt",
     "main_view_html": "main_view.html",
     "flags": [
+        "debug",
         "_hot_reload",
         "_root"
     ]
